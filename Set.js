@@ -42,6 +42,9 @@ Set.prototype.foreach = function (f, context) {
     }
 };
 
+Set.tt = function () {
+    return '_tt methods';
+};
 Set._v2s = function (val) {
     switch (val){
         case undefined :
@@ -70,7 +73,5 @@ Set._v2s.next = 100;
 
 var st = new Set();
 var obj = new Object();
-var obj1 = new Object();
 st.add(obj);
-console.log(st.contains(obj));
-console.log(st);
+// console.log(st);
