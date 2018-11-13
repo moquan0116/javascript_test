@@ -67,3 +67,22 @@ var tt = new Test(1, 4);
 function classof(o) {
     return Object.prototype.toString.call(o).slice(8, -1);
 }
+
+
+var obj = {};
+obj.na = function () {
+    return arguments;
+};
+
+function trace(o, m) {
+    var original = o[m];
+    o[m] = function() {
+        console.log(new Date(), "Entering:", m);
+        var result = original.apply(this, arguments);
+        console.log(new Date(), "Entering:", m);
+        return result;
+    }
+}
+
+trace(obj, 'na');
+obj.na();
